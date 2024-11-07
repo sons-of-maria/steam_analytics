@@ -1,3 +1,4 @@
+const { convertToJST } = require('../utility/timeUtility');
 async function getLiveChatId(videoId, apiKey) {
     try {
         const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=${videoId}&key=${apiKey}`);
@@ -44,7 +45,7 @@ async function fetchLiveChatMessages(liveChatId, apiKey) {
     return messages.map(item => ({
         author: item.authorDetails.displayName,
         message: item.snippet.displayMessage,
-        publishedAt: item.snippet.publishedAt
+        publishedAt: convertToJST(item.snippet.publishedAt)
     }));
 }
 

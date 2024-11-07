@@ -14,3 +14,4 @@ const VIDEO_ID = 'jbvHV5kaQN8';
     const fs = require('fs');
     fs.writeFileSync('messages.json', JSON.stringify(messages, null, 2));
 })();
+
