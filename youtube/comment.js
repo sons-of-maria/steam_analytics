@@ -6,7 +6,7 @@ async function fetchVideoComments(videoId, apiKey) {
         try {
             const response = await fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}`);
             const data = await response.json();
-            console.log('API Response:', JSON.stringify(data, null, 2)); // レスポンス全体をログ出力
+            // console.log('API Response:', JSON.stringify(data, null, 2)); // レスポンス全体をログ出力
   
             // 取得したコメントを配列に追加
             comments = comments.concat(data.items);
