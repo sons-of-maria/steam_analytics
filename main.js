@@ -1,4 +1,5 @@
 const { getLiveChatId, fetchLiveChatMessages } = require('./youtube/live');
+const { createLiveGraph } = require('./graph/createLiveGraph');
 // envからAPI_KEYを取得
 require('dotenv').config();
 const API_KEY = process.env.YOUTUBE_API_KEY;
@@ -12,6 +13,7 @@ const VIDEO_ID = 'jbvHV5kaQN8';
 
     // messageをファイルに出力
     const fs = require('fs');
-    fs.writeFileSync('messages.json', JSON.stringify(messages, null, 2));
+    await fs.writeFileSync('messages.json', JSON.stringify(messages, null, 2));
+    
+    createLiveGraph();
 })();
-
